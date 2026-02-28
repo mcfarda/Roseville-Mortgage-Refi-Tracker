@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roseville 95661 Refinance Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Roseville, CA 95661</p>
+        <h1>Refinance Tracker</h1>
+        <p class="subtitle">
+          Track local refinance movement for ZIP 95661 and estimate your updated principal-and-interest payment.
+        </p>
+        <div class="quick-stats" id="quickStats" aria-live="polite"></div>
+      </div>
+      <section class="card rate-check" aria-label="Current refinance rate quote">
+        <h2>Current 30-Year Refi</h2>
+        <p class="big-rate"><span id="currentRate">--</span>%</p>
+        <p class="muted">Last updated <span id="updatedDate">--</span></p>
+        <p class="focus-tag">Focused market: <strong>Roseville (95661)</strong></p>
+        <p class="muted">Auto-refresh schedule: 7:00 AM and 5:00 PM daily.</p>
+      </section>
+    </div>
+  </header>
+
+  <main class="container main-grid">
+    <section class="card calculator" aria-labelledby="calculatorHeading">
+      <h2 id="calculatorHeading">Refinance Payment Estimator</h2>
+      <p class="muted estimator-note">Assumes property tax and insurance are paid separately.</p>
+      <form id="calculatorForm" class="form-grid">
+        <label>
+          Refi loan amount ($)
+          <input type="number" id="loanAmount" min="50000" step="1000" value="150000" required>
+        </label>
+        <label>
+          Loan term (years)
+          <select id="loanTerm">
+            <option value="30">30 years</option>
+            <option value="20">20 years</option>
+            <option value="15">15 years</option>
+            <option value="10">10 years</option>
+          </select>
+        </label>
+      </form>
+
+
+      <div id="targetAlert" class="target-alert" aria-live="polite"></div>
+
+      <div class="result-grid" id="paymentResult" aria-live="polite">
+        <div>
+          <p class="result-label">Principal + Interest</p>
+          <p class="result-value" id="piValue">$0</p>
+        </div>
+        <div class="total">
+          <p class="result-label">Estimated Monthly Refi Payment</p>
+          <p class="result-value" id="totalValue">$0</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card trends" aria-labelledby="trendsHeading">
+      <h2 id="trendsHeading">Roseville 95661 Refi Trend (Last 6 Weeks)</h2>
+      <svg id="trendChart" viewBox="0 0 640 280" role="img" aria-label="Roseville 95661 refinance trend line chart"></svg>
+      <p class="muted">Illustrative local refinance averages for education only.</p>
+    </section>
+
+    <section class="card neighborhoods" aria-labelledby="neighborhoodHeading">
+      <h2 id="neighborhoodHeading">Roseville 95661 Snapshot</h2>
+      <div id="neighborhoodCards" class="neighborhood-grid"></div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <p>Built for Roseville 95661 homeowners considering refinancing. Verify final quotes with a licensed lender.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
